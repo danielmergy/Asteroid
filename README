@@ -1,0 +1,126 @@
+danielmergy, laetitia07
+Daniel Mergy, Laetitia Benichou
+342533627, 321240459
+
+===================
+= README for ex10: = OOP - Asteroids
+===================
+
+================
+= Description: =
+
+
+DIAGRAM FUNCTIONS :
+
+
+main ( asteroids_main.py )
+  |
+  |
+ run
+  |
+  |
+_do_loop
+   |
+   |
+_game_loop
+     |
+     |
+     |--- check_end
+     |
+     |---remove_life_from_all_torpedos
+     |
+     |--- print_objects_in_game
+     |             |
+     |             |-- print_the_ship
+     |             |          |
+     |             |          |- move_x ( ship.py )  
+     |             |          |- move_y ( ship.py )
+     |             |
+     |             |-- print_the_torpedos
+     |             |          |
+     |             |          |- move_x ( torpedo.py )  
+     |             |          |- move_y ( torpedo.py )
+     |             |
+     |             |-- print_the_asteroids
+     |             |          |
+     |             |          |- move_x ( asteroid.py )  
+     |             |          |- move_y ( asteroid.py )
+     |
+     |
+     |--- check_input
+     |         |
+     |         |-- change_heading_left ( ship.py )
+     |         |-- change_heading_right ( ship.py )
+     |         |-- accelerate_x ( ship.py )
+     |         |-- accelerate_y ( ship.py )
+     |         |-- initiate_torpedo 
+     |         |-- special_shot
+     |   
+     |
+     |--- is_there_a_collisions 
+     |             |
+     |             |-- has_intersection ( asteroid.py )
+     |
+     |- stop_the_game            	      
+     |
+     |- check_if_losing
+     |
+     |- display_lose_life_message
+     |
+     |- relocate_the_ship 
+     |          |
+     |		|-- has_intersection ( asteroids.py )
+     |
+     |- move_the_asteroids
+     |          |
+     |          |-- move_x ( asteroid.py )
+     |	        |-- move_y ( asteroid.py )
+     | 
+     | 
+     |--- is_there_a_hit
+     |		   |
+     |             |-- has_intersection ( asteroid.py )
+     |
+     |- asteroid_division
+     |          |
+     |          |-- update_score
+     |          |-- define_new_asteroid_speed
+     |          |-- initiate_new_asteroid
+     |
+     |
+     |--- is_a_normal_torpedo_over  |
+     |				    |------- delete_the_torpedo
+     |--- is_a_special_torpedo_over |
+     
+     
+Our special is a shot of five torpedos simutatly. if an asteroid is hit it 
+is destroyed without creating smallest asteroids.    
+        
+  
+FIRST CHOICE :
+We chose to create 2 different lists : one
+for the normal torpedos and an another one for the specials
+torpedos. Why we didn't choose the same list ?
+Because when we wanted to update the counter we had to know wich one modify:
+the normal or the special.
+
+SECOND CHOICE :
+We chose to put the 3 lives into a list.
+Why we didn't choose to use a counter for finish the game ?
+We already used 2 counters and it's easier to check one 
+condition if ( with the len() ) instead of use a while.
+
+THIRD CHOICE :
+We chose to determine the speeds of the torpedos in the main
+class : asteroids_main. Why we didn't determine them in the
+torpedo class ( in the file torpedo.py ) ?
+Because it helps to make less mistake often made during class
+calls in other classes. Furthermore, we create the torpedo just
+after. So it's easy to define the speeds into variables that 
+we will use right after in the parameters. In the fact, we 
+began with the option 2 and we took a lot of time to adjust
+the program that didn't run good.
+
+
+================
+
